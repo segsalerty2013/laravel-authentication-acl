@@ -31,7 +31,7 @@ class AuthController extends Controller {
 
     public function postAdminLogin(Request $request)
     {
-        list($phone, $password, $remember) = $this->getLoginInput($request);
+        list($email, $password, $remember, $phone) = $this->getLoginInput($request);
 
         try
         {
