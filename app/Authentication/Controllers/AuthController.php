@@ -31,12 +31,12 @@ class AuthController extends Controller {
 
     public function postAdminLogin(Request $request)
     {
-        list($email, $password, $remember) = $this->getLoginInput($request);
+        list($phone, $password, $remember) = $this->getLoginInput($request);
 
         try
         {
             $this->authenticator->authenticate(array(
-                                                "email" => $email,
+                                                "phone" => $phone,
                                                 "password" => $password
                                              ), $remember);
         }
@@ -149,9 +149,10 @@ class AuthController extends Controller {
     private function getLoginInput(Request $request)
     {
         $email    = $request->get('email');
+        $phone    = $request->get('phone');
         $password = $request->get('password');
         $remember = $request->get('remember');
 
-        return array($email, $password, $remember);
+        return array($email, $password, $remember, $phone);
     }
 }

@@ -16,6 +16,10 @@ class User extends CartaUser
 
     protected $guarded = ["id"];
 
+    public function __construct(array $attributes = array()) {
+        parent::__construct($attributes);
+        parent::setLoginAttributeName('phone');
+    }
     /*
      * $loginAttribute overrides the default use of email to login. now uses phone number
      */

@@ -28,6 +28,11 @@ class SentryUserRepository extends EloquentBaseRepository implements UserReposit
      * @var
      */
     protected $sentry;
+    
+    /*
+     * $loginAttribute overrides the default use of email to login. now uses phone number
+     */
+    protected static $loginAttribute = 'phone';
 
     public function __construct()
     {
