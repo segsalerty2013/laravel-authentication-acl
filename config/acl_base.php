@@ -19,12 +19,18 @@ return [
   |--------------------------------------------------------------------------
   |
   | Set this flag to true if you want to force every new user (on signup)
-  | to verify his email address
+  | to verify his email address or have another form of verification setup
   |
   */
 
   "email_confirmation" => true,
+    
+    /*
+     * Set this flag to true if you still need to send email notification using this app
+     */
 
+    "email_notification" => false,
+    
   /*
   |--------------------------------------------------------------------------
   | Gracefully error handling

@@ -10,10 +10,17 @@ use Cartalyst\Sentry\Users\LoginRequiredException;
 
 class User extends CartaUser
 {
-    protected $fillable = ["email", "password", "permissions", "activated", "activation_code", "activated_at", "last_login", "protected", "banned"];
+    protected $fillable = ["email", "phone", "password", "permissions", "activated", 
+        "activation_code", "activated_at", "last_login", "protected",
+        "banned"];
 
     protected $guarded = ["id"];
 
+    /*
+     * $loginAttribute overrides the default use of email to login. now uses phone number
+     */
+    protected static $loginAttribute = 'phone';
+    
     /**
      * Validates the user and throws
      * Exception if fails.

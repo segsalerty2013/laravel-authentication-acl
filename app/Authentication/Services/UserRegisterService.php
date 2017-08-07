@@ -41,6 +41,8 @@ class UserRegisterService
      * @var boolean
      */
     protected $activation_enabled;
+    
+    protected $email_notification_enabled;
 
     public function __construct(UserSignupValidator $v = null)
     {
@@ -48,6 +50,7 @@ class UserRegisterService
         $this->profile_repository = App::make('profile_repository');
         $this->user_signup_validator = $v ? $v : new UserSignupValidator;
         $this->activation_enabled = Config::get('acl_base.email_confirmation');
+        $this->email_notification_enabled = Config::get('acl_base.email_notification');
         Event::listen('service.activated',
                       'LaravelAcl\Authentication\Services\UserRegisterService@sendActivationEmailToClient');
     }
@@ -65,7 +68,9 @@ class UserRegisterService
         $input['activated'] = $this->getDefaultActivatedState();
         $user = $this->saveDbData($input);
 
-        $this->sendRegistrationMailToClient($input);
+        if($this->email_notification_enabled){
+            $this->sendRegistrationMailToClient($input);
+        }
 
         Event::fire('service.registered', [$input, $user]);
 
