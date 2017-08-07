@@ -105,6 +105,7 @@ class UserSeeder extends Seeder
         $user_data = [
                 "email" => $this->admin_email,
                 "password" => $this->admin_password,
+                "phone" => $this->admin_phone_number,
                 "activated" => 1
         ];
 
