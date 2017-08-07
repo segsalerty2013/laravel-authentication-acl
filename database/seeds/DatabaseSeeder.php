@@ -93,6 +93,7 @@ class GroupsSeeder extends Seeder
 class UserSeeder extends Seeder
 {
     protected $admin_email = "admin@admin.com";
+    protected $admin_phone_number = "+2348012345678";
     protected $admin_password = "password";
 
     public function run ()
