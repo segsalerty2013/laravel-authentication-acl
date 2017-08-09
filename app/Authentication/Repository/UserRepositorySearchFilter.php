@@ -43,7 +43,7 @@ class UserRepositorySearchFilter
 
         $user_emails = array_flip(array_map((function ($element)
         {
-            return $element->email;
+            return $element->email?$element->email:'';
         }), $users));
 //        $users_emails_unique = array_unique($user_emails);
 //        $results = array_only($users, array_values($users_emails_unique));
@@ -91,6 +91,9 @@ class UserRepositorySearchFilter
                             break;
                         case 'email':
                             $q = $q->where($this->user_table_name . '.email', 'LIKE', "%{$value}%");
+                            break;
+                        case 'phone':
+                            $q = $q->where($this->user_table_name . '.phone', 'LIKE', "%{$value}%");
                             break;
                         case 'first_name':
                             $q = $q->where($this->profile_table_name . '.first_name', 'LIKE', "%{$value}%");
