@@ -12,7 +12,7 @@ class User extends CartaUser
 {
     protected $fillable = ["email", "phone", "password", "permissions", "activated", 
         "activation_code", "activated_at", "last_login", "protected",
-        "banned"];
+        "banned", "reset_password_code"];
 
     protected $guarded = ["id"];
 
