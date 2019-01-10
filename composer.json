@@ -9,12 +9,6 @@
     "profile",
     "laravel"
   ],
-  "repositories": [
-    {
-      "type":"git",
-      "url": "https://github.com/lidichamp/sentry.git"
-    }
-  ],
   "authors": [
     {
       "name": "jacopo",
@@ -28,12 +22,18 @@
   ],
   "license": "MIT",
   "type": "project",
+  "repositories": [
+    {
+      "type":"git",
+      "url": "https://github.com/lidichamp/sentry.git"
+    }
+  ],
   "require": {
     "laravel/framework": "5.7.*",
     "laravelcollective/html" : "5.7.*",
     "intervention/image": "^2.4@dev",
     "gregwar/captcha": "dev-master",
-    "jacopo/authentication-sentry": "dev-pronov",
+    "jacopo/authentication-sentry": "dev-dev-pronov",
     "nesbot/carbon": "^1.33"
   },
   "require-dev": {
@@ -56,12 +56,6 @@
     ]
   },
   "scripts": {
-    "post-install-cmd": [
-      "php artisan clear-compiled"
-    ],
-    "post-update-cmd": [
-      "php artisan clear-compiled"
-    ],
     "post-create-project-cmd": [
       "php -r \"copy('.env.example', '.env');\"",
       "php artisan key:generate"
