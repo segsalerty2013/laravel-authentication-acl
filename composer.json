@@ -9,6 +9,12 @@
     "profile",
     "laravel"
   ],
+  "repositories": [
+    {
+      "type":"git",
+      "url": "https://github.com/lidichamp/sentry.git"
+    }
+  ],
   "authors": [
     {
       "name": "jacopo",
@@ -27,7 +33,7 @@
     "laravelcollective/html" : "5.7.*",
     "intervention/image": "^2.4@dev",
     "gregwar/captcha": "dev-master",
-    "jacopo/authentication-sentry": "^3.0.7",
+    "jacopo/authentication-sentry": "dev-pronov",
     "nesbot/carbon": "^1.33"
   },
   "require-dev": {
